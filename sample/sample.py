@@ -59,7 +59,7 @@ class WAUnitDemo(unittest.TestCase):
         utid = '001'
 
         driver = self.driver
-        driver.get("https://store.google.com/product/nexus_6p?utid="+utid)
+        driver.get(f"https://store.google.com/product/nexus_6p?utid={utid}")
 
         # Click Button Buy From $499
         driver.find_element_by_class_name('transaction').click()
@@ -90,7 +90,7 @@ class WAUnitDemo(unittest.TestCase):
         utid = '002'
 
         driver = self.driver
-        driver.get("https://store.google.com/product/nexus_6p?utid="+utid)
+        driver.get(f"https://store.google.com/product/nexus_6p?utid={utid}")
 
         # Click Button Buy From $499
         driver.find_element_by_class_name('transaction').click()
