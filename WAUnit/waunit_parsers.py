@@ -23,7 +23,6 @@ def parse_google_analytics_url(url):
     """
     Parse Google Analytics URL
     """
-    unit_test_data={}
     parsed = urlparse.urlparse(url)
     queryparams = urlparse.parse_qs(parsed.query)
     cacheBuster = to_string(queryparams.get('z'))       # Cache buster
@@ -41,15 +40,17 @@ def parse_google_analytics_url(url):
     queryparams = urlparse.parse_qs(parsed.query)
     # Unit Test ID
     utid = to_string(queryparams.get('utid'))
-    unit_test_data[utid] = {'hitType': hitType,
-                    'pageTitle': pageTitle,
-                    'pageUrl' : pageUrl,
-                    'eventCategory' : eventCategory,
-                    'eventAction' : eventAction,
-                    'eventLabel' : eventLabel,
-                    'propertyId':propertyId
-                    }
-    return unit_test_data
+    return {
+        utid: {
+            'hitType': hitType,
+            'pageTitle': pageTitle,
+            'pageUrl': pageUrl,
+            'eventCategory': eventCategory,
+            'eventAction': eventAction,
+            'eventLabel': eventLabel,
+            'propertyId': propertyId,
+        }
+    }
 
 
 
